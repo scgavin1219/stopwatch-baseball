@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
     var seconds = 0;
     var tens = 0;
     var countTens = document.getElementById('tens')
@@ -142,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
          ctx.arc(x, y, 10, 0, Math.PI * 2, false);
          ctx.strokeStyle = "red"
          ctx.stroke();
+         
          if (x + radius > 570 || x - radius < 230)
              dx = -dx
          if (y + radius < 120 || y + radius > 420)
@@ -168,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
     }
-
+      });
     let p1 = new Player(0, 0)
 
 
@@ -196,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // }
 
     // animate();
-    });
+  
    
 //     // ctx.beginPath();
 //     // ctx.arc(100, 100, 20, 0, 2 * Math.PI, true);
