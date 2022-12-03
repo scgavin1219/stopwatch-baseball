@@ -1,16 +1,14 @@
-    document.addEventListener("DOMContentLoaded", () => {
-    //STOPWATCH
+document.addEventListener("DOMContentLoaded", () => {
     var seconds = 0;
     var tens = 0;
-    var countTens = document.getElementById("tens")
+    var countTens = document.getElementById('tens')
     var countSeconds = document.getElementById('seconds')
-    var startButton = document.getElementById("start")
+    var startButton = document.getElementById('start')
     var stopButton = document.getElementById('stop')
     var resetButton = document.getElementById('reset')
     var time;
     //will run when click on start
     console.log(startButton)
-    console.log("hello")
 
     function startTimer() {
         tens++;
@@ -24,7 +22,7 @@
 
         if (tens > 99) {
             seconds++;
-            countSeconds.innerHTML = 0 + seconds;
+            countSeconds.innerHTML = seconds + " :";
             tens = 0
             countTens.innerHTML = "0" + 0
         }
@@ -44,11 +42,14 @@
 
     resetButton.addEventListener("click", function () {
         clearInterval(time);
-        tens = "00"
-        seconds = "0 :"
-        countSeconds.innerHTML = seconds
-        countTens.innerHTML = tens
+        let tensCode = "00"
+        let secondsCode = "0 :"
+        seconds = 0
+        tens = 0
+        countSeconds.innerHTML = secondsCode
+        countTens.innerHTML = tensCode
     })
+
 
     //canvas
    
@@ -121,49 +122,81 @@
     ctx.fill()
     ctx.stroke();
 
+    function draw(ctx) { 
+        ctx.clearRect(0, 0, 800, 600)
+        ctx.fillStyle
+    }
+
+
+    let x = 400;
+    let y = 400;
+    let dx = 1;
+    let dy = 1;
+    let radius = 20
+
+     function animate() { 
+         requestAnimationFrame(animate);
+         //ctx.clearRect(0, 0, 700, 700)
+         
+         ctx.beginPath();
+         ctx.arc(x, y, 10, 0, Math.PI * 2, false);
+         ctx.strokeStyle = "red"
+         ctx.stroke();
+         if (x + radius > 570 || x - radius < 230)
+             dx = -dx
+         if (y + radius < 120 || y + radius > 420)
+             dy = -dy
+         x += dx;
+         y -= dy;
+     }
+
+     animate();
+
+    class Player { 
+        constructor(x, y) { 
+            this.x = x;
+            this.y = y;
+        }
+
+        advance() { 
+            if (this.x === 400 && this.y === 400) {
+                while (x + radius < 500 || y + radius < 480) { 
+                    let dx = 1
+                    let dy = 1
+            }
+        }
+
+        }
+    }
+
+    let p1 = new Player(0, 0)
+
+
+
+    // let x = 350;
+    // let dx = 1
+    // let dy = 1
+    // let y = 500;
+    // let radius = 20
+
+    // function animate() { 
+    //     requestAnimationFrame(animate);
+    //     ctx.clearRect(0, 0, ctx.width,ctx.height)
+    //     ctx.beginPath();
+    //     ctx.arc(x, y, 10, 0, Math.PI * 2, false);
+    //     ctx.strokeStyle = "white"
+    //     ctx.stroke();
+    //     if (x + radius > 500 || x - radius < 200)
+    //         dx = -dx
+    //     if (y + radius < 260 || y - radius > 480)
+    //         dy = -dy
+
+    //     x += dx;
+    //     y -= dy;
+    // }
+
+    // animate();
     });
-//     function Circle(x, y) { 
-//         this.x = x;
-//         this.y = y
-//         this.draw =function() { 
-//             ctx.beginPath();
-//             ctx.arc(x, y, 10, 0, Math.PI * 2, false);
-//             ctx.strokeStyle = "white"
-//             ctx.stroke(); 
-//         }
-//     }
-
-//     let circle = new Circle(200, 200)
-//     circle.draw()
-
-
-
-
-
-//     let x = 350;
-//     let dx = 1
-//     let dy = 1
-//     let y = 500;
-//     let radius = 20
-
-//     function animate() { 
-//         requestAnimationFrame(animate);
-//         ctx.clearRect(0, 0, ctx.width,ctx.height)
-//         ctx.beginPath();
-//         ctx.arc(x, y, 10, 0, Math.PI * 2, false);
-//         ctx.strokeStyle = "white"
-//         ctx.stroke();
-//         if (x + radius > 500 || x - radius < 200)
-//             dx = -dx
-//         if (y + radius < 260 || y - radius > 480)
-//             dy = -dy
-
-//         x += dx;
-//         y -= dy;
-//     }
-
-//     animate();
-
    
 //     // ctx.beginPath();
 //     // ctx.arc(100, 100, 20, 0, 2 * Math.PI, true);
@@ -208,3 +241,9 @@
 //         return runs;
 //     }
 // /
+
+
+//checks what base players are at
+//while loop
+//check what base
+//advance
